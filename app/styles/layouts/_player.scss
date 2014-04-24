@@ -1,0 +1,25 @@
+$default-player-footer-height: 100px;
+
+.player-body-container {
+  min-height: 100%;
+  padding-bottom: $default-player-footer-height;
+  color: white;
+  
+  a {
+    color: white;
+  }
+
+  @include background(radial-gradient($very-light-background-purple, $dark-background-purple));
+}
+
+.default-player-header, .default-player-footer {
+  background-color: rgba($medium-purple, .7);
+}
+
+.default-player-header {
+  @include font-open-sans(800);
+}
+
+.default-player-footer {
+  height: $default-player-footer-height;
+}

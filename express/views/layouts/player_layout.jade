@@ -1,4 +1,9 @@
 extends base_layout
 
 block body
-
+  .player-body-container
+    block header_nav
+      include ../partials/default_player_header.jade
+    block content
+    block footer_nav
+      include ../partials/default_player_footer.jade
