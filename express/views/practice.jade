@@ -21,25 +21,25 @@ block body
       Note: The period after the closing paren is important!
         Without it, Jade turns the 'A' into a '<A>'.
   div(class="grey-background orange-text").
-  .grey-background
-    .orange-text.
-      A div with the CSS classes 'grey-background' and 'orange-text' applied to it.
+    A div with the CSS classes 'grey-background' and 'orange-text' applied to it.
 
   //- Another alternative for the above is to use
     the vertical bar '|' (typed pressing shift and backslash). The vertical bar prevents
     the following word from being turned into an '<A>' tag.
-  div(class="grey-background orange-text")
-    | A second div with the CSS classes 'grey-background' and 'orange-text' applied to it.
+  div(class="grey-background orange-text").
+    A second div with the CSS classes 'grey-background' and 'orange-text' applied to it.
 
-  a(href="http://google.com", class="orange-text") This is a link to google.
+  div
+    a(href="http://google.com", class="orange-text") This is a link to google.
 
   //- This is an image with the source of an image being Google's logo.
   img(src="http://www.google.com/images/srpr/logo11w.png")
-
-  a(href="http://google.com", class="orange-text") This is a link to google.
+  div
+    a(href="http://google.com", class="orange-text") This is a link to google.
 
 
   //- Step 3 code goes below. Watch your indentation! Each additional level should be indented by 2 spaces.
-
+  a(href="http://google.com")
+    img(src="http://www.google.com/images/srpr/logo11w.png")
 
 
