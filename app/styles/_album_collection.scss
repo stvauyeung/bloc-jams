@@ -1,2 +1,24 @@
 // SASS for your album collection view
 
+.album-listings {
+  margin-top: 35px;
+}
+
+.album-information {
+  line-height: 70%;
+  font-size: 16px;
+  @include font-open-sans(300)
+}
+
+.album-info {
+  opacity: 0.6;
+}
+
+.single-album-listing {
+  margin-bottom: 15px;
+}
+
+.thumbnail {
+  padding: 0px;
+  border: none;
+}
