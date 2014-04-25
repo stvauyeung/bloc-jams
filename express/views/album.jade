@@ -1,3 +1,20 @@
 extends layouts/player_layout
 
 block content
+  .container.album-container
+    .row.album-header-container
+      .col-md-3
+        img(src="/images/album-placeholder.png")
+      .col-md-9.col-md-push-1
+        .album-header-information
+          h3.album-title Title of Album
+          h4.album-artist Amazing Artist
+          h5.album-meta-info 2021, from the future!
+    .row
+      .col-md-12
+        table.table.album-song-listing.table-hover
+          each colorName, index in ['Purple', 'Light Purple', 'Dark Purple', 'Extreme Purple', 'Purple Urple']
+            tr
+              td= index + 1
+              td= colorName
+              td X:XX
