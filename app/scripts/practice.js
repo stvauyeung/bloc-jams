@@ -7,5 +7,9 @@ $(document).ready(function() {
   for(var i = 0; i < 3; i++) {
     var $clonedImage = $funImage.clone();
     $clonedImage.appendTo($imageContainer);
-  }  
+  }
+
+  $('img').click(function($event) {
+  alert('You clicked the image!');
+  });  
 });
