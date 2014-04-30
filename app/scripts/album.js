@@ -37,7 +37,17 @@ var createSongRow = function(songNumber, songName, songLength) {
 };
 
 var changeAlbumView = function(album) {
-  // Your code goes here
+  var $albumTitle = $('.album-title');
+  $albumTitle.text(album.name);
+
+  var $albumArtist = $('.album-artist');
+  $albumArtist.text(album.artist);
+
+  var $albumMeta = $('.album-meta-info');
+  $albumMeta.text(album.year + " on " + album.label);
+
+  var $albumImage = $('.album-image img');
+  $albumImage.attr('src', album.albumArtUrl);
 };
 
 // This 'if' condition is used to preven the jQuery modifications
@@ -48,5 +58,14 @@ if (document.URL.match(/\/album/)) {
   $(document).ready(function() {
     // Code to switch views goes here.
     var albums = [albumPicasso, albumMarconi];
+    changeAlbumView(albumPicasso);
+
+    var albumIndex = 0;
+    var $albumImage = $('.album-image img');
+
+    $albumImage.click(function(event) {
+      albumIndex = (albumIndex + 1) % albums.length;
+      changeAlbumView(albums[albumIndex]);
+    });
   });
 }
