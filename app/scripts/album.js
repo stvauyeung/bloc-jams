@@ -35,8 +35,8 @@ var albumMarconi = {
 
 var createSongRow = function(songNumber, songName, songLength) {
 
-  var $newSongRow = $('<tr>');
-  $newSongRow.append('<td class="col-md-1">' + songNumber + '</td>');
+  var $newSongRow = $('<tr class="song-row">');
+  $newSongRow.append('<td class="col-md-1" id="number">' + songNumber + '</td>');
   $newSongRow.append('<td class="col-md-9">' + songName + '</td>');
   $newSongRow.append('<td class="col-md-2">' + songLength + '</td>');
 
@@ -66,6 +66,17 @@ var changeAlbumView = function(album) {
   };
 };
 
+var showPlayButton = function(songrow) {
+  // turns songrow td#name to play
+  $(songrow).replaceWith($("PLAY"));
+}
+
+var showSongNumber = function(songrow) {
+  // turns songrow td#name to number
+  $(songrow).replaceWith($("1"));
+}
+
+
 // This 'if' condition is used to preven the jQuery modifications
 // from happening on non-Album view pages.
 //  - This line checks if the current url has "/album" in its path using a regex.
@@ -83,5 +94,10 @@ if (document.URL.match(/\/album/)) {
       albumIndex = (albumIndex + 1) % albums.length;
       changeAlbumView(albums[albumIndex]);
     });
+
+    var $songRow = $('.song-row');
+    $songRow.hover(
+      showPlayButton($this), showSongNumber($this)
+    );
   });
 }
