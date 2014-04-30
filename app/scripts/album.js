@@ -35,8 +35,8 @@ var albumMarconi = {
 
 var createSongRow = function(songNumber, songName, songLength) {
 
-  var $newSongRow = $('<tr class="song-row">');
-  $newSongRow.append('<td class="col-md-1" id="number">' + songNumber + '</td>');
+  var $newSongRow = $('<tr>');
+  $newSongRow.append('<td class="col-md-1">' + songNumber + '</td>');
   $newSongRow.append('<td class="col-md-9">' + songName + '</td>');
   $newSongRow.append('<td class="col-md-2">' + songLength + '</td>');
 
@@ -66,15 +66,15 @@ var changeAlbumView = function(album) {
   };
 };
 
-var showPlayButton = function(songrow) {
-  // turns songrow td#name to play
-  $(songrow).replaceWith($("PLAY"));
-}
+// var showPlayButton = function(songNumberCont) {
+//   // turns songrow td#name to play
+//   songNumberCont.text("PLAY");
+// }
 
-var showSongNumber = function(songrow) {
-  // turns songrow td#name to number
-  $(songrow).replaceWith($("1"));
-}
+// var showSongNumber = function(songNumberCont) {
+//   // turns songrow td#name to number
+//   songNumberCont.text("1");
+// }
 
 
 // This 'if' condition is used to preven the jQuery modifications
@@ -95,9 +95,14 @@ if (document.URL.match(/\/album/)) {
       changeAlbumView(albums[albumIndex]);
     });
 
-    var $songRow = $('.song-row');
+    var $songRow = $('tr');
+    var $songNumberCont = $('td.col-md-1');
     $songRow.hover(
-      showPlayButton($this), showSongNumber($this)
+      function() {
+        $songNumberCont.text("Play");
+      }, function() {
+        $songNumberCont.text("1");
+      }
     );
   });
 }
