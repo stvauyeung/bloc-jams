@@ -34,6 +34,13 @@ var albumMarconi = {
 };
 
 var createSongRow = function(songNumber, songName, songLength) {
+
+  var $newSongRow = $('<tr>');
+  $newSongRow.append('<td class="col-md-1">' + songNumber + '</td>');
+  $newSongRow.append('<td class="col-md-9">' + songName + '</td>');
+  $newSongRow.append('<td class="col-md-2">' + songLength + '</td>');
+
+  return $newSongRow;
 };
 
 var changeAlbumView = function(album) {
@@ -48,6 +55,15 @@ var changeAlbumView = function(album) {
 
   var $albumImage = $('.album-image img');
   $albumImage.attr('src', album.albumArtUrl);
+
+  var $songList = $('.album-song-listing');
+  $songList.empty();
+  var songs = album.songs;
+  for (var i = 0; i < songs.length; i++) {
+    var songData = songs[i];
+    var $newRow = createSongRow(i+1, songData.name, songData.length)
+    $songList.append($newRow);
+  };
 };
 
 // This 'if' condition is used to preven the jQuery modifications
