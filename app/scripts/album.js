@@ -95,14 +95,7 @@ if (document.URL.match(/\/album/)) {
       changeAlbumView(albums[albumIndex]);
     });
 
-    var $songRow = $('tr');
-    var $songNumberCont = $('td.col-md-1');
-    $songRow.hover(
-      function() {
-        $songNumberCont.text("Play");
-      }, function() {
-        $songNumberCont.text("1");
-      }
-    );
+    // Adding play/pause functionality
+    // 
   });
 }
