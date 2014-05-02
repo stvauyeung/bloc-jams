@@ -66,8 +66,6 @@ var changeAlbumView = function(album) {
   };
 };
 
-<<<<<<< HEAD
-=======
 var numberColumn = '.number-column';
 
 var getNumberContent = function(element) {
@@ -78,7 +76,6 @@ var setNumberContent = function(element, newContent) {
   return $(element).children(numberColumn).text(newContent);
 }
 
->>>>>>> song_play_function
 
 // This 'if' condition is used to preven the jQuery modifications
 // from happening on non-Album view pages.
