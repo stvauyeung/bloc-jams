@@ -66,16 +66,6 @@ var changeAlbumView = function(album) {
   };
 };
 
-// var showPlayButton = function(songNumberCont) {
-//   // turns songrow td#name to play
-//   songNumberCont.text("PLAY");
-// }
-
-// var showSongNumber = function(songNumberCont) {
-//   // turns songrow td#name to number
-//   songNumberCont.text("1");
-// }
-
 
 // This 'if' condition is used to preven the jQuery modifications
 // from happening on non-Album view pages.
