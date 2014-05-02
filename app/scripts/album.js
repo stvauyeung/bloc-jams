@@ -35,8 +35,8 @@ var albumMarconi = {
 
 var createSongRow = function(songNumber, songName, songLength) {
 
-  var $newSongRow = $('<tr>');
-  $newSongRow.append('<td class="col-md-1">' + songNumber + '</td>');
+  var $newSongRow = $('<tr class="song-row">');
+  $newSongRow.append('<td class="col-md-1 number-column" id="' + songNumber + '">' + songNumber + '</td>');
   $newSongRow.append('<td class="col-md-9">' + songName + '</td>');
   $newSongRow.append('<td class="col-md-2">' + songLength + '</td>');
 
@@ -66,6 +66,19 @@ var changeAlbumView = function(album) {
   };
 };
 
+<<<<<<< HEAD
+=======
+var numberColumn = '.number-column';
+
+var getNumberContent = function(element) {
+  return $(element).children(numberColumn).text();
+}
+
+var setNumberContent = function(element, newContent) {
+  return $(element).children(numberColumn).text(newContent);
+}
+
+>>>>>>> song_play_function
 
 // This 'if' condition is used to preven the jQuery modifications
 // from happening on non-Album view pages.
@@ -85,14 +98,38 @@ if (document.URL.match(/\/album/)) {
       changeAlbumView(albums[albumIndex]);
     });
 
-    var $songRow = $('tr');
-    var $songNumberCont = $('td.col-md-1');
+    var $songRow = $('.song-row')
+    // Add play/pause functionality
     $songRow.hover(
       function() {
-        $songNumberCont.text("Play");
-      }, function() {
-        $songNumberCont.text("1");
+        if($(this).children(numberColumn).text() !== "Pause") { 
+          setNumberContent(this, "Play") 
+        };
+
+        $(this).children(numberColumn).click(function() {
+          if ($(this).hasClass('playing')) {
+            $(this).removeClass('playing');
+            $(this).text("Play");
+          } else {
+            // check if row with .playing exists and change back to song number
+            if ($('.playing').length > 0) {
+              var previousSongId = $('.playing').attr('id');
+              $('.playing').text(previousSongId);
+              $('.playing').removeClass('playing');
+            }
+            // change clicked row to .playing
+            $(this).addClass('playing');
+            $(this).text("Pause");
+          };
+        });
+      }, function () {
+        if($(this).children(numberColumn).hasClass('playing')) {
+          $('.playing').children(numberColumn).text("Pause");
+        } else {
+          setNumberContent(this, $(this).children('.number-column').attr('id'));
+        };
       }
     );
+    
   });
 }
