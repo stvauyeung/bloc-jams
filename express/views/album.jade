@@ -3,7 +3,7 @@ extends layouts/player_layout
 block content
   .container.album-container
     .row.album-header-container
-      .col-md-3
+      .col-md-3.album-image
         img(src="/images/album-placeholder.png")
       .col-md-9.col-md-push-1
         .album-header-information
@@ -13,8 +13,3 @@ block content
     .row
       .col-md-12
         table.table.album-song-listing.table-hover
-          each colorName, index in ['Purple', 'Light Purple', 'Dark Purple', 'Extreme Purple', 'Purple Urple']
-            tr
-              td= index + 1
-              td= colorName
-              td X:XX

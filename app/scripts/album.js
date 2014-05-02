@@ -34,11 +34,48 @@ var albumMarconi = {
 };
 
 var createSongRow = function(songNumber, songName, songLength) {
+
+  var $newSongRow = $('<tr class="song-row">');
+  $newSongRow.append('<td class="col-md-1 number-column" id="' + songNumber + '">' + songNumber + '</td>');
+  $newSongRow.append('<td class="col-md-9">' + songName + '</td>');
+  $newSongRow.append('<td class="col-md-2">' + songLength + '</td>');
+
+  return $newSongRow;
 };
 
 var changeAlbumView = function(album) {
-  // Your code goes here
+  var $albumTitle = $('.album-title');
+  $albumTitle.text(album.name);
+
+  var $albumArtist = $('.album-artist');
+  $albumArtist.text(album.artist);
+
+  var $albumMeta = $('.album-meta-info');
+  $albumMeta.text(album.year + " on " + album.label);
+
+  var $albumImage = $('.album-image img');
+  $albumImage.attr('src', album.albumArtUrl);
+
+  var $songList = $('.album-song-listing');
+  $songList.empty();
+  var songs = album.songs;
+  for (var i = 0; i < songs.length; i++) {
+    var songData = songs[i];
+    var $newRow = createSongRow(i+1, songData.name, songData.length)
+    $songList.append($newRow);
+  };
 };
+
+var numberColumn = '.number-column';
+
+var getNumberContent = function(element) {
+  return $(element).children(numberColumn).text();
+}
+
+var setNumberContent = function(element, newContent) {
+  return $(element).children(numberColumn).text(newContent);
+}
+
 
 // This 'if' condition is used to preven the jQuery modifications
 // from happening on non-Album view pages.
@@ -48,5 +85,48 @@ if (document.URL.match(/\/album/)) {
   $(document).ready(function() {
     // Code to switch views goes here.
     var albums = [albumPicasso, albumMarconi];
+    changeAlbumView(albumPicasso);
+
+    var albumIndex = 0;
+    var $albumImage = $('.album-image img');
+
+    $albumImage.click(function(event) {
+      albumIndex = (albumIndex + 1) % albums.length;
+      changeAlbumView(albums[albumIndex]);
+    });
+
+    var $songRow = $('.song-row')
+    // Add play/pause functionality
+    $songRow.hover(
+      function() {
+        if($(this).children(numberColumn).text() !== "Pause") { 
+          setNumberContent(this, "Play") 
+        };
+
+        $(this).children(numberColumn).click(function() {
+          if ($(this).hasClass('playing')) {
+            $(this).removeClass('playing');
+            $(this).text("Play");
+          } else {
+            // check if row with .playing exists and change back to song number
+            if ($('.playing').length > 0) {
+              var previousSongId = $('.playing').attr('id');
+              $('.playing').text(previousSongId);
+              $('.playing').removeClass('playing');
+            }
+            // change clicked row to .playing
+            $(this).addClass('playing');
+            $(this).text("Pause");
+          };
+        });
+      }, function () {
+        if($(this).children(numberColumn).hasClass('playing')) {
+          $('.playing').children(numberColumn).text("Pause");
+        } else {
+          setNumberContent(this, $(this).children('.number-column').attr('id'));
+        };
+      }
+    );
+    
   });
 }
