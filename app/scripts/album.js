@@ -99,29 +99,29 @@ if (document.URL.match(/\/album/)) {
     // Add play/pause functionality
     $songRow.hover(
       function() {
-        if($(this).children(numberColumn).text() !== "Pause") { 
-          setNumberContent(this, "Play") 
+        if($(this).children(numberColumn).text() !== 'Pause') { 
+          setNumberContent(this, 'Play');
         };
 
         $(this).children(numberColumn).click(function() {
           if ($(this).hasClass('playing')) {
             $(this).removeClass('playing');
-            $(this).text("Play");
+            $(this).text('Play');
           } else {
             // check if row with .playing exists and change back to song number
-            if ($('.playing').length > 0) {
+            if ($('.playing')) {
               var previousSongId = $('.playing').attr('id');
               $('.playing').text(previousSongId);
               $('.playing').removeClass('playing');
-            }
-            // change clicked row to .playing
+            };
+            
             $(this).addClass('playing');
-            $(this).text("Pause");
+            $(this).text('Pause');
           };
         });
       }, function () {
         if($(this).children(numberColumn).hasClass('playing')) {
-          $('.playing').children(numberColumn).text("Pause");
+          $('.playing').children(numberColumn).text('Pause');
         } else {
           setNumberContent(this, $(this).children('.number-column').attr('id'));
         };

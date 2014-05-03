@@ -40,3 +40,8 @@
 .table-hover > tbody > tr:hover > td {
   background-color: #B474EF;
 }
+
+.number-column {
+  @include font-open-sans(700);
+  cursor: pointer;
+}
