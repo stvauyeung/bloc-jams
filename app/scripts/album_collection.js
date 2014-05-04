@@ -24,12 +24,15 @@ var updateCollectionView = function() {
     $(this).find('.collection-album-image-overlay').remove();
   };
   
-  var $newThumbnail = $('.album-thumbnail');
-  $newThumbnail.children('.collection-album-image-container').hover(onHover, offHover);
+  for (var i = 0; i < 33; i++) {
+    var $newThumbnail = $('.album-thumbnail#'+i+'');
+    $newThumbnail.find('.collection-album-image-container').hover(onHover, offHover);
+  };
 };
 
 if (document.URL.match(/\/collection/)) {
   // Wait until the HTML is fully processed.
   $(document).ready(function() {
+    updateCollectionView;
   });
 }
