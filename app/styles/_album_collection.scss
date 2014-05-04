@@ -5,7 +5,7 @@
 }
 
 .album-information {
-  line-height: 70%;
+  line-height: 100%;
   font-size: 16px;
   @include font-open-sans(300)
 }
@@ -21,4 +21,12 @@
 .thumbnail {
   padding: 0px;
   border: none;
+}
+
+.collection-album-image-container {
+  position: relative;
+
+  img {
+    max-width: 100%;
+  }
 }
