@@ -5,14 +5,11 @@ block content
     .row.album-listings
       - for (var x = 0; x < 33; x++)
         .col-md-2.single-album-listing
-          a(href="/album" class="thumbnail")
-            img(src="/images/album-placeholder.png")
+          .thumbnail.album-thumbnail(id=x)
+            .collection-album-image-container
+              img(src="/images/album-placeholder.png")
           .album-information
-            p
-              a(href="/album").
-                Album Name
-            p.album-info
-              a(href="/album").
-                Artist Name
-            p.album-info.
-              X songs
+            a(href="/album") Album Name
+            .album-info
+              a(href="/album") Artist Name
+            .album-info X songs

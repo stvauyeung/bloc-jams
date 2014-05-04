@@ -5,7 +5,7 @@
 }
 
 .album-information {
-  line-height: 70%;
+  line-height: 100%;
   font-size: 16px;
   @include font-open-sans(300)
 }
@@ -21,4 +21,59 @@
 .thumbnail {
   padding: 0px;
   border: none;
+}
+
+.collection-album-image-container {
+  position: relative;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.collection-album-image-overlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .4);
+  z-index: 10;
+}
+
+.collection-overlay-content {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.collection-overlay-button {
+  $button-pink: #E5297F;
+  $overlay-button-size: 42px;
+  font-size: 20px;
+  background-color: white;
+  border-radius: 50% 50%;
+
+  display: inline-block;
+  width: $overlay-button-size;
+  height: $overlay-button-size;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $button-pink;
+
+    i {
+      color: white;
+    }
+  }
+
+  i {
+    line-height: $overlay-button-size;
+    color: $button-pink;
+  }
+
+  .fa-play {
+    padding-left: 5px;
+  }
 }
