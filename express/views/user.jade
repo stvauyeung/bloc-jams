@@ -1,6 +1,53 @@
 extends layouts/player_layout
 
 block content
-  br
-  button.default-button UPLOAD
-  button.default-button(disabled='true') UPLOAD
+  .container.user-profile-container
+    .row
+      .col-md-12.text-center
+        ul.pagination.profile-tabs
+          li
+            a(href="#").default-button.
+                YOUR ACCOUNT
+          li
+            a(href="#").default-button.active.
+                SUBSCRIPTION
+    .row
+      .col-md-12.profile-title.
+        Personal Information
+    .row.profile-forms
+      .col-md-3
+        .row
+          .col-md-5.profile-image-upload
+            img(src="/images/user-upload-placeholder.png")
+            button.default-button(type="submit").image-upload-button UPLOAD
+      .col-md-7
+        .row
+          form(role="form").profile-information-form
+            .form-group
+              label(for="username") Name
+              input(type="text", id="user_name").form-control
+            .form-group
+              label(for="email") Email
+              input(type="email", id="email").form-control
+            .row
+              .form-group.col-md-6
+                label(for="city") City
+                input(type="text", id="city").form-control
+              .form-group.col-md-6
+                label(for="state") State
+                input(type="text", id="state").form-control
+            .form-group
+              label(for="country") Country
+              input(type="text", id="country").form-control
+            .button-wrapper
+              button.default-button(type="submit") SAVE PROFILE
+        .row
+          form(role="form").password-change-form
+            .form-group
+              label(for="password") Password
+              input(type="text", id="password").form-control
+            .form-group
+              label(for="password_confirmation") Password Confirmation
+              input(type="text", id="password_confirmation").form-control
+            .button-wrapper
+              button.default-button(type="submit") CHANGE PASSWORD

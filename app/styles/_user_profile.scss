@@ -1,0 +1,71 @@
+.profile-tabs {
+  border-style: solid;
+  border-width: 2px;
+  border-color: $pink-color;
+  border-radius: 7px;
+  margin-top: 45px;
+
+  li > a {
+    @include font-open-sans(800);
+    background-color: $pink-color;
+    color: white;
+    border-style: none;
+
+    &:hover {
+      background-color: $pink-color;
+      color: white;
+    }
+  }
+
+  .active {
+    border-style: none;
+    background-color: $dark-background-purple;
+  }
+}
+
+.profile-title {
+  font-size: 24px;
+  @include font-open-sans(300);
+  margin-bottom: 25px;
+}
+
+.profile-image-upload {
+  position: relative;
+  text-align: center;
+}
+
+.image-upload-button {
+  position: absolute;
+  top: 110%;
+}
+
+.profile-forms {
+  label {
+    font-size: 16px;
+    color: white;
+    @include font-open-sans(300);
+  }
+
+  input {
+    border: none;
+    border-radius: 0% 0%;
+    background-color: white;
+    opacity: 0.6;
+    font-size: 16px;
+    color: #0A032B;
+    @include font-open-sans(300);
+  }
+}
+
+.profile-information-form {
+  margin-bottom: 20px;
+}
+
+.password-change-form {
+  margin-bottom: 45px;
+  margin-top: 15px;
+}
+
+.button-wrapper {
+  text-align: center;
+}

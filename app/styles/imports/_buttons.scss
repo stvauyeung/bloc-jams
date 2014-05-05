@@ -1,7 +1,7 @@
 .default-button {
   
-  background-color: #D2287B;
-  text: white;
+  background-color: $pink-color;
+  color: white;
   @include font-open-sans(700);
   line-height: 2em;
   letter-spacing: 2px;
