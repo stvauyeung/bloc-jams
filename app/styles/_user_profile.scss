@@ -55,6 +55,37 @@
   }
 }
 
+.subscription-information {
+  display: inline-block;
+  margin-top: 25px;
+}
+
+.credit-card-table {
+  margin-top: 45px;
+  max-width: 50%;
+  margin-right: 25%;
+  margin-left: 25%;
+}
+
+.cc-table-title {
+  font-size: 24px;
+  @include font-open-sans(300);
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.tab-contents {
+  display: none;
+}
+
+.tab-contents-active {
+  display: block;
+}
+
+.clear {
+  clear: both;
+}
+
 .profile-information-form {
   margin-bottom: 20px;
 }
@@ -64,6 +95,6 @@
   margin-top: 15px;
 }
 
-.button-wrapper {
+.center-wrapper {
   text-align: center;
 }

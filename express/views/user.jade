@@ -1,54 +1,78 @@
 extends layouts/player_layout
 
 block content
-  .container.user-profile-container
+  .container(id="user-profile-container")
     .row
-      .col-md-12.text-center
+      .col-md-12.text-center(id="tabs-container")
         ul.pagination.profile-tabs
           li
-            a(href="#").default-button.
+            a(href="#" rel="#profile-update").tab.default-button.
                 YOUR ACCOUNT
           li
-            a(href="#").default-button.active.
+            a(href="#" rel="#subscription-update").tab.default-button.active.
                 SUBSCRIPTION
-    .row
-      .col-md-12.profile-title.
-        Personal Information
-    .row.profile-forms
-      .col-md-12
-        .col-md-2
-          .row.upload-image-block
-            img(src="/images/user-upload-placeholder.png").profile-image
-            .button-wrapper
-              button.default-button(type="submit") UPLOAD
-        .col-md-7.col-md-offset-1
-          .row
-            form(role="form").profile-information-form
-              .form-group
-                label(for="username") Name
-                input(type="text", id="user_name").form-control
-              .form-group
-                label(for="email") Email
-                input(type="email", id="email").form-control
+    .clear
+    .tab-contents-container
+      .tab-contents.tab-contents-active(id="profile-update")
+        .row
+          .col-md-12.profile-title.
+            Personal Information
+        .row.profile-forms
+          .col-md-12
+            .col-md-2
+              .row.upload-image-block
+                img(src="/images/user-upload-placeholder.png").profile-image
+                .center-wrapper
+                  button.default-button(type="submit") UPLOAD
+            .col-md-7.col-md-offset-1
               .row
-                .form-group.col-md-6
-                  label(for="city") City
-                  input(type="text", id="city").form-control
-                .form-group.col-md-6
-                  label(for="state") State
-                  input(type="text", id="state").form-control
-              .form-group
-                label(for="country") Country
-                input(type="text", id="country").form-control
-              .button-wrapper
-                button.default-button(type="submit") SAVE PROFILE
-          .row
-            form(role="form").password-change-form
-              .form-group
-                label(for="password") Password
-                input(type="text", id="password").form-control
-              .form-group
-                label(for="password_confirmation") Password Confirmation
-                input(type="text", id="password_confirmation").form-control
-              .button-wrapper
-                button.default-button(type="submit") CHANGE PASSWORD
+                form(role="form").profile-information-form
+                  .form-group
+                    label(for="username") Name
+                    input(type="text", id="user_name").form-control
+                  .form-group
+                    label(for="email") Email
+                    input(type="email", id="email").form-control
+                  .row
+                    .form-group.col-md-6
+                      label(for="city") City
+                      input(type="text", id="city").form-control
+                    .form-group.col-md-6
+                      label(for="state") State
+                      input(type="text", id="state").form-control
+                  .form-group
+                    label(for="country") Country
+                    input(type="text", id="country").form-control
+                  .center-wrapper
+                    button.default-button(type="submit") SAVE PROFILE
+              .row
+                form(role="form").password-change-form
+                  .form-group
+                    label(for="password") Password
+                    input(type="text", id="password").form-control
+                  .form-group
+                    label(for="password_confirmation") Password Confirmation
+                    input(type="text", id="password_confirmation").form-control
+                  .center-wrapper
+                    button.default-button(type="submit") CHANGE PASSWORD
+      .tab-contents(id="subscription-update")
+        .col-md-12.subscription-information
+          .row.center-wrapper
+            img(src="/images/subscription-placeholder.png")
+            img(src="/images/subscription-placeholder.png")
+            img(src="/images/subscription-placeholder.png")
+          .row.credit-cards
+            table.table.credit-card-table
+              caption.cc-table-title Credit Cards
+              tr
+                td VISA
+                td XXX-1234
+                td
+                  i.fa.fa-minus-circle
+              tr
+                td VISA
+                td XXX-1234
+                td
+                  i.fa.fa-minus-circle
+            .center-wrapper
+              button.default-button ADD CARD
