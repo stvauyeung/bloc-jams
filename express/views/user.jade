@@ -65,14 +65,16 @@ block content
             table.table.credit-card-table
               caption.cc-table-title Credit Cards
               tr
-                td VISA
-                td XXX-1234
-                td
-                  i.fa.fa-minus-circle
+                td(id="row-1") VISA
+                td(id="row-2") XXX-1234
+                td(id="row-3")
+                  a(href="#").remove-credit-card
+                    i.fa.fa-minus-circle
               tr
-                td VISA
-                td XXX-1234
-                td
-                  i.fa.fa-minus-circle
+                td(id="row-1") VISA
+                td(id="row-2") XXX-1234
+                td(id="row-3")
+                  a(href="#").remove-credit-card
+                    i.fa.fa-minus-circle
             .center-wrapper
               button.default-button ADD CARD
