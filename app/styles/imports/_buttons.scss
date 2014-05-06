@@ -1,0 +1,20 @@
+.default-button {
+  
+  background-color: $pink-color;
+  color: white;
+  @include font-open-sans(700);
+  line-height: 2em;
+  letter-spacing: 2px;
+  border: none;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  &:active {
+    background-color: #9B1D64;
+  }
+
+  &:disabled {
+    background-color: #BDBDBD;
+  }
+}
