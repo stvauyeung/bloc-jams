@@ -1,15 +1,19 @@
 extends layouts/player_layout
 
 block content
-  .container.album-container
+  .container.album-container(ng-controller="Album.controller")
     .row.album-header-container
       .col-md-3.album-image
-        img(src="/images/album-placeholder.png")
+        img(ng-src="{{ album.albumArtUrl }}", ng-click="changeAlbum()")
       .col-md-9.col-md-push-1
         .album-header-information
-          h3.album-title Title of Album
-          h4.album-artist Amazing Artist
-          h5.album-meta-info 2021, from the future!
+          h3.album-title {{ album.name }}
+          h4.album-artist {{ album.artist }}
+          h5.album-meta-info {{ album.year }} on {{ album.label }}
     .row
       .col-md-12
         table.table.album-song-listing.table-hover
+          tr.song-row(ng-repeat="song in album.songs")
+            td.col-md-1.number-column(id="{{ $index + 1 }}") {{ $index + 1 }}
+            td.col-md-9 {{ song.name }}
+            td.col-md-2 {{ song.length }}

@@ -34,5 +34,13 @@ var albumMarconi = {
 };
 
 angular.module("Controllers").controller('Album.controller', ['$scope', function($scope) {
+  var albums = [albumPicasso, albumMarconi];
+  var currentAlbumIndex = 0;
+
+  $scope.album = albums[0];
+  $scope.changeAlbum = function() {
+    currentAlbumIndex = (currentAlbumIndex + 1) % albums.length;
+    $scope.album = albums[currentAlbumIndex];
+  };
 }]);
 
