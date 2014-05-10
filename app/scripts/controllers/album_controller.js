@@ -33,8 +33,8 @@ var albumMarconi = {
     ]
 };
 
-angular.module("Controllers").controller('Album.controller', ['$scope', function($scope) {
-  var albums = [albumPicasso, albumMarconi];
+angular.module("Controllers").controller('Album.controller', ['$scope', 'Album', function($scope, Album) {
+  var albums = [new Album(albumPicasso), new Album(albumMarconi)];
   var currentAlbumIndex = 0;
 
   $scope.album = albums[0];

@@ -80,9 +80,9 @@ var setNumberContent = function(element, newContent) {
 // // This 'if' condition is used to preven the jQuery modifications
 // // from happening on non-Album view pages.
 // //  - This line checks if the current url has "/album" in its path using a regex.
-if (document.URL.match(/\/album/)) {
+// if (document.URL.match(/\/album/)) {
   // Wait until the HTML is fully processed.
-  $(document).ready(function() {
+  // $(document).ready(function() {
 //     // Code to switch views goes here.
 //     var albums = [albumPicasso, albumMarconi];
 //     changeAlbumView(albumPicasso);
@@ -95,38 +95,38 @@ if (document.URL.match(/\/album/)) {
 //       changeAlbumView(albums[albumIndex]);
 //     });
 
-    var $songRow = $('.song-row')
-    // Add play/pause functionality
-    $songRow.hover(
-      function() {
-        if($(this).children(numberColumn).text() !== 'Pause') { 
-          setNumberContent(this, 'Play');
-        };
+//     var $songRow = $('.song-row')
+//     // Add play/pause functionality
+//     $songRow.hover(
+//       function() {
+//         if($(this).children(numberColumn).text() !== 'Pause') { 
+//           setNumberContent(this, 'Play');
+//         };
 
-        $(this).children(numberColumn).click(function() {
-          if ($(this).hasClass('playing')) {
-            $(this).removeClass('playing');
-            $(this).text('Play');
-          } else {
-            // check if row with .playing exists and change back to song number
-            if ($('.playing')) {
-              var previousSongId = $('.playing').attr('id');
-              $('.playing').text(previousSongId);
-              $('.playing').removeClass('playing');
-            };
+//         $(this).children(numberColumn).click(function() {
+//           if ($(this).hasClass('playing')) {
+//             $(this).removeClass('playing');
+//             $(this).text('Play');
+//           } else {
+//             // check if row with .playing exists and change back to song number
+//             if ($('.playing')) {
+//               var previousSongId = $('.playing').attr('id');
+//               $('.playing').text(previousSongId);
+//               $('.playing').removeClass('playing');
+//             };
             
-            $(this).addClass('playing');
-            $(this).text('Pause');
-          };
-        });
-      }, function () {
-        if($(this).children(numberColumn).hasClass('playing')) {
-          $('.playing').children(numberColumn).text('Pause');
-        } else {
-          setNumberContent(this, $(this).children('.number-column').attr('id'));
-        };
-      }
-    );
+//             $(this).addClass('playing');
+//             $(this).text('Pause');
+//           };
+//         });
+//       }, function () {
+//         if($(this).children(numberColumn).hasClass('playing')) {
+//           $('.playing').children(numberColumn).text('Pause');
+//         } else {
+//           setNumberContent(this, $(this).children('.number-column').attr('id'));
+//         };
+//       }
+//     );
     
-  });
-}
+//   });
+// }
