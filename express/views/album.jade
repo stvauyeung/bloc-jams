@@ -9,7 +9,7 @@ block content
         .album-header-information
           h3.album-title {{ album.name }}
           h4.album-artist {{ album.artist }}
-          h5.album-meta-info {{ album.year }} on {{ album.label }}
+          h5.album-meta-info {{ album.metaInfo() }}
     .row
       .col-md-12
         table.table.album-song-listing.table-hover
