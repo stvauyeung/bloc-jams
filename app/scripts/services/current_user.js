@@ -1,4 +1,4 @@
-angular.module("Services").service("CurrentUser", ["User", function(User) {
+angular.module('Services').service('currentUser', ['User', function(User) {
   var exampleUser = {
     name: 'John Doe',
     email: 'john@example.com',

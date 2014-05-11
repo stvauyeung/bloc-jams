@@ -1,15 +1,15 @@
 extends layouts/player_layout
 
 block content
-  .container(id="user-profile-container")
+  .container(id="user-profile-container", ng-controller="User.controller")
     .row
       .col-md-12.text-center(id="tabs-container")
         ul.pagination.profile-tabs
           li
-            a(href="#" rel="#profile-update").tab.default-button.
+            a(href="#", rel="#profile-update").tab.default-button.
                 YOUR ACCOUNT
           li
-            a(href="#" rel="#subscription-update").tab.default-button.active.
+            a(href="#", rel="#subscription-update").tab.default-button.active.
                 SUBSCRIPTION
     .clear
     .tab-contents-container
@@ -28,8 +28,9 @@ block content
               .row
                 form(role="form").profile-information-form
                   .form-group
-                    label(for="username") Name
-                    input(type="text", id="user_name").form-control
+                    label(for="name") Name
+                    input(ng-model="userInformationForm.name", type="text", id="name").form-control
+                    {{ userInformationForm.name }}
                   .form-group
                     label(for="email") Email
                     input(type="email", id="email").form-control
