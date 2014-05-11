@@ -2,14 +2,20 @@ extends layouts/player_layout
 
 block content
   .container
-    .row.album-listings
-      - for (var x = 0; x < 33; x++)
-        .col-md-2.single-album-listing
-          .thumbnail.album-thumbnail(id=x)
-            .collection-album-image-container
-              img(src="/images/album-placeholder.png")
-          .album-information
-            a(href="/album") Album Name
-            .album-info
-              a(href="/album") Artist Name
-            .album-info X songs
+    .row.album-listings(ng-controller="Collection.controller")
+      .col-md-2.single-album-listing(ng-repeat="album in albums")
+        .thumbnail.album-thumbnail(id="{{ $index + 1 }}")
+          .collection-album-image-container(ng-mouseenter="showAlbumOverlay(album)", ng-mouseleave="hideAlbumOverlay(album)")
+            img(ng-src="{{ album.albumArtUrl }}")
+            .collection-album-image-overlay(ng-show="hasAlbumOverlay(album)")
+              .collection-overlay-content
+                a.collection-overlay-button(ng-href="{{album.url()}}")
+                  i.fa.fa-play
+                &nbsp;
+                a.collection-overlay-button
+                  i.fa.fa-plus
+        .album-information
+          a(href="{{ album.url() }}") {{ album.name }}
+          .album-info
+            a(href="{{ album.url() }}") {{ album.artist }}
+          .album-info {{ album.songs.length }} songs
