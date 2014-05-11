@@ -50,7 +50,7 @@ var albumTheXX = {
 
 angular.module("Controllers").controller("Collection.controller", ["$scope", "Album", function($scope, Album){
   var albums = [new Album(albumMarconi), new Album(albumPicasso), new Album(albumTheXX)];
-  $scope.albums = albums
+  $scope.albums = albums;
 
   var albumWithOverlay = null;
 
