@@ -5,8 +5,15 @@ block content
     .row.album-listings(ng-controller="Collection.controller")
       .col-md-2.single-album-listing(ng-repeat="album in albums")
         .thumbnail.album-thumbnail(id="{{ $index + 1 }}")
-          .collection-album-image-container
+          .collection-album-image-container(ng-mouseenter="showAlbumOverlay(album)", ng-mouseleave="hideAlbumOverlay(album)")
             img(ng-src="{{ album.albumArtUrl }}")
+            .collection-album-image-overlay(ng-show="hasAlbumOverlay(album)")
+              .collection-overlay-content
+                a.collection-overlay-button(ng-href="{{album.url()}}")
+                  i.fa.fa-play
+                &nbsp;
+                a.collection-overlay-button
+                  i.fa.fa-plus
         .album-information
           a(href="{{ album.url() }}") {{ album.name }}
           .album-info

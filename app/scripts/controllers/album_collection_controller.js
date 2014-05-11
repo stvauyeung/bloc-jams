@@ -51,4 +51,18 @@ var albumTheXX = {
 angular.module("Controllers").controller("Collection.controller", ["$scope", "Album", function($scope, Album){
   var albums = [new Album(albumMarconi), new Album(albumPicasso), new Album(albumTheXX)];
   $scope.albums = albums
+
+  var albumWithOverlay = null;
+
+  $scope.showAlbumOverlay = function(album) {
+    albumWithOverlay = album;
+  };
+
+  $scope.hideAlbumOverlay = function(album) {
+    albumWithOverlay = null;
+  };
+
+  $scope.hasAlbumOverlay = function(album) {
+    return albumWithOverlay === album;
+  };
 }]);
