@@ -1,7 +1,7 @@
 extends layouts/player_layout
 
 block content
-  .container(id="user-profile-container", ng-controller="User.controller")
+  .container(id="user-profile-container")
     .row
       .col-md-12.text-center(id="tabs-container")
         ul.pagination.profile-tabs
@@ -12,11 +12,11 @@ block content
             a(href="#", rel="#subscription-update").tab.default-button.active.
                 SUBSCRIPTION
     .clear
-    .tab-contents-container
+    .tab-contents-container(ng-controller="User.controller")
       .tab-contents.tab-contents-active(id="profile-update")
         .row
           .col-md-12.profile-title.
-            Personal Information
+            Personal Information {{ hello }}
         .row.profile-forms
           .col-md-12
             .col-md-2
