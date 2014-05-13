@@ -16,7 +16,7 @@ block content
       .tab-contents.tab-contents-active(id="profile-update")
         .row
           .col-md-12.profile-title.
-            Personal Information {{ hello }}
+            Personal Information
         .row.profile-forms
           .col-md-12
             .col-md-2
@@ -30,7 +30,6 @@ block content
                   .form-group
                     label(for="name") Name
                     input(ng-model="userInformationForm.name", type="text", id="name").form-control
-                    {{ userInformationForm.name }}
                   .form-group
                     label(for="email") Email
                     input(type="email", id="email").form-control

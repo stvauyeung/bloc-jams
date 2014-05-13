@@ -4,5 +4,4 @@ angular.module("Controllers").controller("User.controller", ["$scope", "CurrentU
     newPassword: null,
     confirmPassword: null
   };
-  $scope.hello = "hello";
 }]);
