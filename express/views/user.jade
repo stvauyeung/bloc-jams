@@ -6,13 +6,13 @@ block content
       .col-md-12.text-center(id="tabs-container")
         ul.pagination.profile-tabs
           li
-            a(href="#" rel="#profile-update").tab.default-button.
+            a(href="#", rel="#profile-update").tab.default-button.
                 YOUR ACCOUNT
           li
-            a(href="#" rel="#subscription-update").tab.default-button.active.
+            a(href="#", rel="#subscription-update").tab.default-button.active.
                 SUBSCRIPTION
     .clear
-    .tab-contents-container
+    .tab-contents-container(ng-controller="User.controller")
       .tab-contents.tab-contents-active(id="profile-update")
         .row
           .col-md-12.profile-title.
@@ -26,33 +26,38 @@ block content
                   button.default-button(type="submit") UPLOAD
             .col-md-7.col-md-offset-1
               .row
-                form(role="form").profile-information-form
+                form(role="form" name="userForm").profile-information-form
                   .form-group
-                    label(for="username") Name
-                    input(type="text", id="user_name").form-control
+                    label(for="name") Name
+                    input(ng-model="userInformationForm.name", type="text", name="name" required).form-control
+                    span.form-error-msg(ng-show="userForm.name.$error.required") Name is required!
                   .form-group
                     label(for="email") Email
-                    input(type="email", id="email").form-control
+                    input(ng-model="userInformationForm.email" type="email", name="email" required).form-control
+                    span.form-error-msg(ng-show="userForm.email.$error.required") Email is required!
                   .row
                     .form-group.col-md-6
                       label(for="city") City
-                      input(type="text", id="city").form-control
+                      input(ng-model="userInformationForm.city" type="text", name="city").form-control
                     .form-group.col-md-6
                       label(for="state") State
-                      input(type="text", id="state").form-control
+                      input(ng-model="userInformationForm.state" type="text", name="state").form-control
                   .form-group
                     label(for="country") Country
-                    input(type="text", id="country").form-control
+                    input(ng-model="userInformationForm.country" type="text", name="country").form-control
                   .center-wrapper
                     button.default-button(type="submit") SAVE PROFILE
               .row
-                form(role="form").password-change-form
+                form(role="form" name="userPasswordForm").password-change-form
                   .form-group
                     label(for="password") Password
-                    input(type="text", id="password").form-control
+                    input(ng-model="passwordForm.newPassword" type="text", name="password" required ng-minlength="8").form-control
+                    span.form-error-msg(ng-show="userPasswordForm.password.$error.minlength") Must be at least 8 characters!
+                    span.form-error-msg(ng-show="userPasswordForm.password.$error.required") Password is required!
                   .form-group
                     label(for="password_confirmation") Password Confirmation
-                    input(type="text", id="password_confirmation").form-control
+                    input(ng-model="passwordForm.confirmPassword" type="text", name="password_confirmation" required ng-minlength="8").form-control
+                    span.form-error-msg(ng-show="userPasswordForm.password_confirmation.$error.minlength") Must be at least 8 characters!
                   .center-wrapper
                     button.default-button(type="submit") CHANGE PASSWORD
       .tab-contents(id="subscription-update")

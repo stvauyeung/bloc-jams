@@ -109,6 +109,20 @@
 
 .profile-information-form {
   margin-bottom: 20px;
+
+  input.ng-invalid {
+    border-style: solid;
+    border-width: 3px;
+    border-color: $form-error-yellow;
+  }
+}
+
+.password-change-form {
+  input.ng-invalid {
+    border-style: solid;
+    border-width: 3px;
+    border-color: $form-error-yellow;
+  }
 }
 
 .password-change-form {
@@ -118,4 +132,9 @@
 
 .center-wrapper {
   text-align: center;
+}
+
+.form-error-msg {
+  color: #EF051D;
+  opacity: 0.8;
 }
